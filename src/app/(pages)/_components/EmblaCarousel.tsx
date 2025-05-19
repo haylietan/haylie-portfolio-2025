@@ -31,7 +31,7 @@ export default function EmblaCarousel() {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="max-h-screen h-screen overflow-hidden">
+    <div className="h-full w-full">
       <div className="overflow-hidden h-full" ref={emblaRef}>
         <div className="flex flex-col h-full">
           <EmblaSlide title="Hero" color="bg-blue-500" />
@@ -42,17 +42,19 @@ export default function EmblaCarousel() {
       </div>
 
       {/* Vertical dot nav (optional on right edge) */}
-      <div className="absolute left-4 top-3/4 -translate-y-1/2 flex flex-col gap-2">
+      <div className="absolute left-4 top-3/4 -translate-y-1/2 flex flex-col gap-2 border-3">
         {scrollSnaps.map((_, index) => (
           <button
             key={index}
             onClick={() => scrollTo(index)}
-            className={`w-3 h-3 rounded-full border-2 transition-colors duration-200 ${
+            className={`w-30 rounded-full border-2 transition-colors duration-200 ${
               index === selectedIndex
                 ? 'bg-gray-900 border-gray-900'
                 : 'bg-transparent border-gray-400'
             }`}
-          />
+            >
+              Page
+            </button>
         ))}
       </div>
     </div>
