@@ -1,16 +1,5 @@
 // import Image from 'next/image';
 
-export default function Home() {
-  return (
-    <div>
-      <main>
-        <p>
-          main content goes here
-        </p>
-      </main>
-      <footer>
-        footer
-      </footer>
-    </div>
-  );
+export default function Page() {
+  return <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
 }
