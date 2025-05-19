@@ -32,9 +32,9 @@ export default function EmblaCarousel() {
 
   return (
     <div className="max-h-screen h-screen overflow-hidden">
-      <div className="overflow-hidden w-full" ref={emblaRef}>
-        <div className="flex flex-grow">
-          <EmblaSlide title="Hero" color="bg-blue-300" />
+      <div className="overflow-hidden h-full" ref={emblaRef}>
+        <div className="flex flex-col h-full">
+          <EmblaSlide title="Hero" color="bg-blue-500" />
           <EmblaSlide title="About" color="bg-green-500" />
           <EmblaSlide title="Projects" color="bg-pink-500" />
           <EmblaSlide title="Contact" color="bg-yellow-500" />
