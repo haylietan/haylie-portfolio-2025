@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+
 // @font-face {
 //   font-family: 'Metropolis';
 //   src: url('/fonts/Metropolis/TrueType/Metropolis-ExtraLight.ttf') format('truetype');
@@ -37,16 +38,24 @@
 //   font-style: normal;
 // }
 
-:root {
-  // --font-metropolis: 'Metropolis', sans-serif;
-  --background-primary: #0C1511;
-  --background-secondary: #7A2A3C;
-  --background-secondary-light: #AA3954;
-  --background-tertiary: #AC5064;
-  --background-light: #D594A6;
+// :root {
+//   // --font-metropolis: 'Metropolis', sans-serif;
+//   --background-primary: #0C1511;
+//   --background-secondary: #7A2A3C;
+//   --background-secondary-light: #AA3954;
+//   --background-tertiary: #AC5064;
+//   --background-light: #D594A6;
 
-  --text-light: #FFF;
-  --text-dark: #0C1511;
+//   --text-light: #FFF;
+//   --text-dark: #0C1511;
+// }
+
+:root {
+  --color-1: #000;
+  --color-2: pink;
+  --color-3: #ADB2D4; 
+  --color-4: #213448;
+  --blur: blur(120px);
 }
 
 * {
