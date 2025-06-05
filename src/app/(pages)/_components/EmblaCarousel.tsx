@@ -4,6 +4,13 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useCallback, useState } from 'react';
 import EmblaSlide from './Slide';
 
+const SLIDES = [
+  { title: 'Hero', color: 'bg-white/10' },
+  { title: 'About', color: 'bg-white/20' },
+  { title: 'Projects', color: 'bg-white/30' },
+  { title: 'Contact', color: 'bg-white/40' },
+];
+
 export default function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     axis: 'y',
@@ -11,7 +18,7 @@ export default function EmblaCarousel() {
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  // const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const scrollTo = useCallback(
     (index: number) => emblaApi && emblaApi.scrollTo(index),
@@ -26,7 +33,7 @@ export default function EmblaCarousel() {
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
-    setScrollSnaps(emblaApi.scrollSnapList());
+    // setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on('select', onSelect);
   }, [emblaApi, onSelect]);
 
@@ -34,29 +41,29 @@ export default function EmblaCarousel() {
     <div className="h-full w-full">
       <div className="overflow-hidden h-full" ref={emblaRef}>
         <div className="flex flex-col h-full">
-          <EmblaSlide title="Hero" color="bg-blue-500" />
-          <EmblaSlide title="About" color="bg-green-500" />
-          <EmblaSlide title="Projects" color="bg-pink-500" />
-          <EmblaSlide title="Contact" color="bg-yellow-500" />
+          {SLIDES.map((slide, index) => (
+            <EmblaSlide key={index} title={slide.title} color={slide.color} />
+          ))}
         </div>
       </div>
 
       {/* Vertical dot nav (optional on right edge) */}
-      <div className="absolute left-4 top-3/4 -translate-y-1/2 flex flex-col gap-2 border-3">
-        {scrollSnaps.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollTo(index)}
-            className={`w-30 rounded-full border-2 transition-colors duration-200 ${
-              index === selectedIndex
-                ? 'bg-gray-900 border-gray-900'
-                : 'bg-transparent border-gray-400'
-            }`}
-            >
-              Page
-            </button>
-        ))}
-      </div>
+     <div className="flex left-4 top-3/4 -translate-y-1/2 flex flex-col gap-2 border-3">
+      {SLIDES.map((slide, index) => (
+        <button
+          key={index}
+          onClick={() => scrollTo(index)}
+          className={`px-3 py-1 text-sm rounded-full border-2 transition-colors duration-200 ${
+            index === selectedIndex
+              ? 'bg-gray-900 text-white border-gray-900'
+              : 'bg-transparent text-gray-800 border-gray-400'
+          }`}
+        >
+          {slide.title}
+        </button>
+      ))}
+    </div>
+
     </div>
   );
 }
