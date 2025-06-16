@@ -30,26 +30,39 @@ export default function Page() {
         <main className="relative z-10 w-[85%] h-[85%] flex flex-row items-center justify-center p-6 text-center bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg">
 
           {/* Sidebar with nav */}
-          <div className="w-1/5 h-full bg-white/20 backdrop-blur-md flex flex-col items-center justify-between p-6 rounded-l-xl border-3">
-            <div className="h-screen pt-16 pb-16 px-10 m-10 flex flex-col justify-between border-4 border-gray-400 rounded-xl">
-              <p className="text-xl font-semibold">[insert logo here]</p>
-              <div className="space-y-2">
-                {SLIDES.map((slide, index) => (
-                  <button
-                    key={index}
-                    onClick={() => scrollTo(index)}
-                    className={`px-3 py-1 w-full text-sm rounded-full border-2 transition-colors duration-200 ${
-                      index === selectedIndex
-                        ? 'bg-gray-900 text-white border-gray-900'
-                        : 'bg-transparent text-gray-800 border-gray-400'
-                    }`}
-                  >
-                    {slide.title}
-                  </button>
-                ))}
+            <div className="w-1/5 h-full bg-white/10 backdrop-blur-xl border-r border-white/20 flex flex-col items-center py-10 px-6">
+              {/* Inner container */}
+              <div className="w-full flex flex-col justify-between h-full">
+                {/* Logo section */}
+                <div className="text-center mb-8">
+                  <p className="text-2xl font-bold text-white tracking-wide">[insert logo here]</p>
+                </div>
+
+                {/* nav bar */}
+                <div className="flex flex-col gap-4 items-center">
+                  {SLIDES.map((slide, index) => (
+                    <button
+                      key={index}
+                      onClick={() => scrollTo(index)}
+                      className={`h-15 w-50 flex items-center justify-center text-sm rounded-xl transition-all duration-200 border backdrop-blur-md ${
+                        index === selectedIndex
+                          ? 'bg-white/80 text-black border-white shadow-xl'
+                          : 'bg-black/10 text-white border-white/30 hover:bg-white/20 hover:text-gray-200 hover:border-white/50'
+                      }`}
+                    >
+                      {slide.title}
+                    </button>
+                  ))}
+                </div>
+
+            
+                {/* Optional footer space if needed */}
+                <div className="text-xs text-black/40 mt-8 text-center">
+                  © {new Date().getFullYear()}
+                </div>
               </div>
             </div>
-          </div>
+
 
           {/* Main carousel area */}
           <div className="w-4/5 h-full flex items-center justify-center rounded-r-xl">
