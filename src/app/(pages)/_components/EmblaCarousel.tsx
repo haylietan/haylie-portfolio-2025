@@ -1,4 +1,3 @@
-// EmblaCarousel.tsx
 'use client';
 
 import type { EmblaCarouselType } from 'embla-carousel';
@@ -35,11 +34,13 @@ export default function EmblaCarousel({ onInit, onSelect }: EmblaCarouselProps) 
   }, [emblaApi, onInit, handleSelect]);
 
   return (
-    <div className="h-full w-full">
+    <div className="h-screen w-full">
       <div className="overflow-hidden h-full" ref={emblaRef}>
         <div className="flex flex-col h-full">
           {SLIDES.map((slide, index) => (
-            <EmblaSlide key={index} title={slide.title} color={slide.color} />
+            <div key={index} className="h-screen flex-shrink-0">
+              <EmblaSlide title={slide.title} color={slide.color} />
+            </div>
           ))}
         </div>
       </div>

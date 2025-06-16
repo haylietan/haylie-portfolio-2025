@@ -31,7 +31,7 @@ export default function Page() {
 
           {/* Sidebar with nav */}
           <div className="w-1/5 h-full bg-white/20 backdrop-blur-md flex flex-col items-center justify-between p-6 rounded-l-xl border-3">
-            <div className="h-screen p-10 m-10 flex flex-col justify-between border-4 border-gray-400 rounded-xl">
+            <div className="h-screen pt-16 pb-16 px-10 m-10 flex flex-col justify-between border-4 border-gray-400 rounded-xl">
               <p className="text-xl font-semibold">[insert logo here]</p>
               <div className="space-y-2">
                 {SLIDES.map((slide, index) => (
