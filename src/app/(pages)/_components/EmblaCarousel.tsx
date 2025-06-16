@@ -4,14 +4,16 @@
 import type { EmblaCarouselType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useCallback } from 'react';
-import EmblaSlide from './Slide';
+// import EmblaSlide from './Slide';
+import Hero from './Hero/Hero';
+import About from './About/About';
 
 const SLIDES = [
-  { title: 'Hero', color: 'bg-white/10' },
-  { title: 'About', color: 'bg-blue/20' },
-  { title: 'Experience', color: 'bg-white/20' },
-  { title: 'Projects', color: 'bg-white/30' },
-  { title: 'Contact', color: 'bg-white/40' },
+  { title: 'Hero', color: 'bg-white/10', component: <Hero/> },
+  { title: 'About', color: 'bg-blue/20', component: <About/> },
+  { title: 'Experience', color: 'bg-white/20', component: <About/> },
+  { title: 'Projects', color: 'bg-white/30', component: <About/> },
+  { title: 'Contact', color: 'bg-white/40', component: <About/> },
 ];
 
 type EmblaCarouselProps = {
@@ -40,7 +42,9 @@ export default function EmblaCarousel({ onInit, onSelect }: EmblaCarouselProps) 
       <div className="overflow-hidden h-full" ref={emblaRef}>
         <div className="flex flex-col h-full">
           {SLIDES.map((slide, index) => (
-            <EmblaSlide key={index} title={slide.title} color={slide.color} />
+            <div key={index} className="h-screen flex-shrink-0">
+              {slide.component}
+            </div>
           ))}
         </div>
       </div>

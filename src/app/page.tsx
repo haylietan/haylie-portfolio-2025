@@ -5,7 +5,6 @@ import EmblaCarousel, { SLIDES } from './(pages)/_components/EmblaCarousel';
 import styles from './Page.module.scss';
 import type { EmblaCarouselType } from 'embla-carousel';
 
-
 export default function Page() {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -17,35 +16,34 @@ export default function Page() {
   return (
     <div className={styles.backgroundWrapper}>
       {/* animated blobs */}
-      <div className={`${styles.blob} ${styles.blob1}`}></div>
-      <div className={`${styles.blob} ${styles.blob2}`}></div>
-      <div className={`${styles.blob} ${styles.blob3}`}></div>
-      <div className={`${styles.blob} ${styles.blob4}`}></div>
+      <div className={`${styles.blob} ${styles.blob1}`} />
+      <div className={`${styles.blob} ${styles.blob2}`} />
+      <div className={`${styles.blob} ${styles.blob3}`} />
+      <div className={`${styles.blob} ${styles.blob4}`} />
 
       {/* blur filter overlay */}
-      <div className={styles.blurOverlay}></div>
+      <div className={styles.blurOverlay} />
 
-      {/* this external div centers it */}
+      {/* center the app */}
       <div className="w-screen h-screen flex items-center justify-center">
-        <main className="relative z-10 w-[85%] h-[85%] flex flex-row items-center justify-center p-6 text-center bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg">
+        <div className="relative z-10 w-[85%] h-[90%] flex flex-row items-center justify-center p-6 text-center bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg">
 
-          {/* Sidebar with nav */}
+          {/* Sidebar */}
           <div className="w-1/5 h-full bg-white/10 backdrop-blur-xl border-r border-white/20 flex flex-col items-center py-10 px-6">
-            {/* Inner container */}
-            <div className="w-full flex flex-col justify-between h-full">
-              
-              {/* Top section: logo, pills, resume */}
-              <div className="flex flex-col items-center gap-6 mt-10">
-                {/* Logo placeholder */}
+            <div className="w-full h-full flex flex-col">
+
+              {/* Top section: logo, name, resume */}
+              <div className="flex flex-col items-center gap-4 pt-10">
+                {/* Logo */}
                 <div className="w-20 h-20 bg-white/20 rounded-xl" />
 
-                {/* Pills */}
-                <div className="flex flex-col gap-0 items-center">
-                  <div className="w-32 h-6"> Haylie Tan </div>
-                  <div className="w-50 h-6"> Full-Stack Developer </div>
+                {/* Name + role */}
+                <div className="flex flex-col gap-0 items-center text-white">
+                  <div className="text-base font-semibold">Haylie Tan</div>
+                  <div className="text-sm text-white/80">Full-Stack Developer</div>
                 </div>
 
-                {/* Download Resume Button */}
+                {/* Resume button */}
                 <a
                   href="/resume.pdf"
                   download
@@ -55,8 +53,8 @@ export default function Page() {
                 </a>
               </div>
 
-              {/* Navigation buttons */}
-              <div className="flex flex-col gap-4 items-center mt-10">
+              {/* Nav buttons */}
+              <div className="flex-grow flex flex-col gap-4 items-center justify-center mt-6">
                 {SLIDES.map((slide, index) => (
                   <button
                     key={index}
@@ -73,14 +71,13 @@ export default function Page() {
               </div>
 
               {/* Footer */}
-              <div className="text-xs text-white/40 mt-8 text-center">
+              <div className="text-xs text-white/40 text-center pb-2">
                 © {new Date().getFullYear()}
               </div>
             </div>
           </div>
 
-
-          {/* Main carousel area */}
+          {/* Main carousel */}
           <div className="w-4/5 h-full flex items-center justify-center rounded-r-xl">
             <EmblaCarousel
               onInit={(api) => setEmbla(api)}
@@ -88,7 +85,7 @@ export default function Page() {
             />
           </div>
 
-        </main>
+        </div>
       </div>
     </div>
   );
