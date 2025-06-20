@@ -1,0 +1,106 @@
+.container {
+  padding: 2rem;
+  width: 100%;
+  height: 90%;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.featuredGrid {
+  display: flex;
+  gap: 1rem;
+}
+
+.featuredCard {
+  flex: 1;
+  height: 12rem;
+  border-radius: 0.75rem;
+  background: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.pinned {
+  background: linear-gradient(to bottom, #444, #222);
+  color: white;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  background: #eee;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.pinButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1rem;
+}
+
+.gridScroll {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.gridItem {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.projectPreview {
+  background: #ddd;
+  height: 100px;
+  border-radius: 0.5rem;
+}
+
+.projectMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  height: 0.75rem;
+  width: 80%;
+  background: #ccc;
+  border-radius: 0.25rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tags span {
+  width: 2rem;
+  height: 1rem;
+  background: #ccc;
+  border-radius: 9999px;
+}
