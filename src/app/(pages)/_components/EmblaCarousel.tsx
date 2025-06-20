@@ -7,13 +7,14 @@ import { useEffect, useCallback } from 'react';
 // import EmblaSlide from './Slide';
 import Hero from './Hero/Hero';
 import About from './About/About';
+import Contact from './Contact/Contact';
 
 const SLIDES = [
   { title: 'Hero', color: 'bg-white/10', component: <Hero/> },
   { title: 'About', color: 'bg-blue/20', component: <About/> },
   { title: 'Experience', color: 'bg-white/20', component: <About/> },
   { title: 'Projects', color: 'bg-white/30', component: <About/> },
-  { title: 'Contact', color: 'bg-white/40', component: <About/> },
+  { title: 'Contact', color: 'bg-white/40', component: <Contact/> },
 ];
 
 type EmblaCarouselProps = {
