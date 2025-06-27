@@ -9,11 +9,12 @@ import Hero from './Hero/Hero';
 import About from './About/About';
 import Contact from './Contact/Contact';
 import Projects from './Projects/Projects';
+import Experience from './Experience/Experience';
 
 const SLIDES = [
   { title: 'Hero', color: 'bg-white/10', component: <Hero/> },
   { title: 'About', color: 'bg-blue/20', component: <About/> },
-  { title: 'Experience', color: 'bg-white/20', component: <About/> },
+  { title: 'Experience', color: 'bg-white/20', component: <Experience/> },
   { title: 'Projects', color: 'bg-white/30', component: <Projects/> },
   { title: 'Contact', color: 'bg-white/40', component: <Contact/> },
 ];
