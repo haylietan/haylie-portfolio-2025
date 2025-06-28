@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaThumbtack } from 'react-icons/fa';
+import { FaThumbtack, FaGithub } from 'react-icons/fa';
 import styles from './Projects.module.scss';
 import Image from 'next/image';
 
@@ -9,22 +9,22 @@ type Project = {
   id: number;
   title: string;
   pinned?: boolean;
-  image?: string; // new field for background image
+  image?: string;
+  github?: string;
+  tags?: string[];
 };
-
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([
-  { id: 1, title: 'Featured Project A', pinned: true, image: '/Images/JudgingApp.png' },
-  { id: 2, title: 'Featured Project B', image: '/Images/HD2025.png' },
-  { id: 3, title: 'Mini Project 1', image: '/Images/JudgingApp.png' },
-  { id: 4, title: 'Mini Project 2', image: '/Images/JudgingApp.png' },
-  { id: 5, title: 'Mini Project 3', image: '/Images/JudgingApp.png' },
-  { id: 6, title: 'Mini Project 4', image: '/Images/JudgingApp.png' },
-  { id: 7, title: 'Mini Project 5', image: '/Images/JudgingApp.png' },
-  { id: 8, title: 'Mini Project 6', image: '/Images/JudgingApp.png' }
-]);
-
+    { id: 1, title: 'Featured Project A', pinned: true, image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub'},
+    { id: 2, title: 'Featured Project B', image: '/Images/HD2025.png', github: 'https://github.com/HackDavis/hackdavis-hub' },
+    { id: 3, title: 'Mini Project 1', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
+    { id: 4, title: 'Mini Project 2', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
+    { id: 5, title: 'Mini Project 3', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
+    { id: 6, title: 'Mini Project 4', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
+    { id: 7, title: 'Mini Project 5', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
+    { id: 8, title: 'Mini Project 6', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
+  ]);
 
   const togglePin = (id: number) => {
     setProjects((prev) =>
@@ -46,15 +46,25 @@ export default function Projects() {
             key={project.id}
             className={`${styles.featuredCard} ${project.pinned ? styles.pinned : ''}`}
           >
-          <div className={styles.featuredImageWrapper}>
-            <Image
-              src={project.image ?? '/images/fallback.jpg'}
-              alt={project.title}
-              width={500}
-              height={350}
-              style={{ objectFit: 'cover' }}
-            />
-          </div>
+            <div className={styles.featuredImageWrapper}>
+              <Image
+                src={project.image ?? '/images/fallback.jpg'}
+                alt={project.title}
+                fill
+                style={{ objectFit: 'cover' }}
+                className={styles.featuredImage}
+              />
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.overlay}
+                >
+                  <FaGithub className={styles.githubIcon} />
+                </a>
+              )}
+            </div>
             <div className={styles.cardFooter}>
               <span className={styles.label}>Featured</span>
               <button onClick={() => togglePin(project.id)} className={styles.pinButton}>
@@ -65,23 +75,31 @@ export default function Projects() {
         ))}
       </div>
 
-
       {/* Scrollable Grid */}
       <div className={styles.gridScroll}>
         {others.map((project) => (
-          <div
-            key={project.id}
-            className={styles.gridItem}
-          >
+          <div key={project.id} className={styles.gridItem}>
             <div
               className={styles.projectPreview}
               style={{ backgroundImage: `url(${project.image})` }}
-            ></div>
+            >
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.overlay}
+                >
+                  <FaGithub className={styles.githubIcon} />
+                </a>
+              )}
+            </div>
             <div className={styles.projectMeta}>
-              <div className={styles.title}></div>
+              <div className={styles.title}>{project.title}</div>
               <div className={styles.tags}>
-                <span></span>
-                <span></span>
+                {project.tags?.map((tag, i) => (
+                  <span key={i}>{tag}</span>
+                ))}
               </div>
             </div>
           </div>
