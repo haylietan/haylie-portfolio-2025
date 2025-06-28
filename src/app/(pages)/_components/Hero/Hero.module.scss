@@ -1,0 +1,49 @@
+.introWrapper {
+  position: relative;
+  margin: 20%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.name {
+  font-size: 6rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.smallText,
+.midTextLeft,
+.midTextRight {
+  font-size: 2rem;
+  color: #888;
+  font-weight: 500;
+  margin: 0;
+  width: 100%; // matches name width
+}
+
+.midTextLeft {
+  text-align: left;
+
+  .role {
+    color: white;
+  }
+}
+
+.midTextRight {
+  text-align: right;
+
+  .role {
+    color: white;
+  }
+}
