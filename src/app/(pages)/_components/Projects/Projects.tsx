@@ -37,7 +37,7 @@ export default function Projects() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Projects.</h2>
+      <h2 className={styles.heading}>Projects</h2>
 
       {/* Featured Projects */}
       <div className={styles.featuredGrid}>

@@ -4,22 +4,22 @@ import styles from './Experience.module.scss';
 
 const experiences = [
   {
-    title: 'Software Engineering Intern',
-    company: 'Greenhouse.io',
-    date: 'Jun 2025 – Aug 2025',
-    description: 'Worked on internal dashboard improvements and scalable React components for recruiter workflows.',
-  },
-  {
     title: 'Web Development Intern',
     company: 'UC Davis College of Biological Sciences',
     date: 'May 2024 – Present',
-    description: 'Built and maintained lab websites using SiteFarm CMS. Collaborated with PIs and engineers to meet deadlines and ensure accessibility.',
+    description: 'Developed and deployed 15+ custom websites using SiteFarm for principal investigators and academic units, ensuring accessibility (WCAG 2.1), compliance, and a seamless user experience.',
   },
   {
     title: 'Technical Director',
-    company: 'HackDavis 2025',
-    date: 'Jan 2024 – Apr 2025',
-    description: 'Led development of HackerHub and judging platforms used by 1,000+ participants. Ensured system stability and built judge assignment logic.',
+    company: 'HackDavis',
+    date: 'Jan 2024 – Present',
+    description: 'Led development of HackerHub, live website, and judging app used by 1,000+ participants. Ensured system stability and built judge assignment logic.',
+  },
+  {
+    title: 'Intern',
+    company: 'California School Information Services (CSIS)',
+    date: 'July 2024 – Aug 2024',
+    description: 'Shadowed an Agile team throughout an entire sprint cycle, gaining first hand experience in sprint planning, daily stand-ups, backlog grooming, and sprint retrospectives.',
   },
 ];
 
