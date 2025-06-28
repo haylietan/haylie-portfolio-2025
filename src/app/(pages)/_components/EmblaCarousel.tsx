@@ -42,7 +42,7 @@ export default function EmblaCarousel({ onInit, onSelect }: EmblaCarouselProps) 
 
   return (
     <div className="h-full w-full">
-      <div className="overflow-hidden h-full" ref={emblaRef}>
+      <div className="overflow-hidden h-full max-h-screen" ref={emblaRef}>
         <div className="flex flex-col h-full">
           {SLIDES.map((slide, index) => (
             <div key={index} className="h-screen flex-shrink-0">

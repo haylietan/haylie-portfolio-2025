@@ -21,8 +21,8 @@ export default function Projects() {
     { id: 3, title: 'HackDavis HackerHub 2025', image: '/Images/HackerHub.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js', 'TypeScript'] },
     { id: 4, title: '#include Technical Cohort Website', image: '/Images/IncludeClient.png', github: 'https://cohort.includedavis.com/', tags: ['React', 'Next.js'] },
     { id: 5, title: 'Japanese American Student Society Website', image: '/Images/JASS.png', github: 'https://jassucd.vercel.app/', tags: ['React', 'Next.js'] },
-    { id: 6, title: "Fourth & Hope", image: '/Images/Fourth&Hope.png', github: 'https://github.com/include-davis/fourth-and-hope', tags: ['React', 'Next.js'] },
-    { id: 7, title: "Moo'd: Self-care Mobile App", image: '/Images/Mood.png', github: 'https://www.figma.com/design/PwRuol3009NMM2U6sWMUBp/Moo-d?node-id=374-77&t=VmtqILimRYfs2C3A-1', tags: ['React', 'Next.js'] },
+    { id: 6, title: "Fourth & Hope", image: '/Images/Fourth&Hope.png', github: 'https://github.com/include-davis/fourth-and-hope', tags: ['Team Lead', 'React', 'Next.js'] },
+    { id: 7, title: "Moo'd: Self-care Mobile App", image: '/Images/Mood.png', github: 'https://www.figma.com/design/PwRuol3009NMM2U6sWMUBp/Moo-d?node-id=374-77&t=VmtqILimRYfs2C3A-1', tags: ['Figma', 'Project Management'] },
     { id: 8, title: 'SafeHER', image: '/Images/SafeHER.png', github: 'https://www.figma.com/design/fHArbkxShBoozuhpZNZVUK/safeHER?node-id=559-1397&t=XDA6UKb7pQBB2fXQ-1', tags: ['AI Rant Bot', 'OAuth'] },
   ]);
 

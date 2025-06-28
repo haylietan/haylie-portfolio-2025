@@ -1,27 +1,190 @@
-@import '../../_globals/mixins.scss';
-
-.container {
-    height: 100%;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    border: 3px solid red;
-    display: flex;
-    position: relative;
-    padding-top: 60px;
-    padding: 3%;
-    color: white;
-
-    .navdiv {
-        justify-content: space-between;
-        align-items: center;
-        
-
-        ul {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-        }
-    }
+.sidebar {
+  width: 20%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
 }
-  
+
+.inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+.logo {
+  width: 5rem;
+  height: 5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+}
+
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.1rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.role {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.resumeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.navSection {
+  flex-grow: 1;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navBtn {
+  width: 12rem;
+  height: 3.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.14);
+  color: white;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: black;
+    border-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+}
+
+.active {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  border-color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: white;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+// responsiveness
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.bar {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  border-radius: 1px;
+}
+
+/* Responsive behavior */
+@media screen and (max-width: 768px) {
+  .resumeBtn,
+  .footer {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navSection {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .open {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+  }
+
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .inner {
+    flex-direction: column;
+  }
+}
