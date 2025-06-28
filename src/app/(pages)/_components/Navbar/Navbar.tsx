@@ -22,7 +22,7 @@ export default function Navbar({ slides, selectedIndex, scrollTo }: NavBarProps)
       <div className={styles.inner}>
         {/* Top section */}
         <div className={styles.topSection}>
-          <div className={styles.logo} />
+          <div className={styles.logo}/>
 
           <div className={styles.nameBlock}>
             <div className={styles.name}>Haylie Tan</div>
