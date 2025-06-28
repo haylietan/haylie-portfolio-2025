@@ -16,14 +16,14 @@ type Project = {
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([
-    { id: 1, title: 'Featured Project A', pinned: true, image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub'},
-    { id: 2, title: 'Featured Project B', image: '/Images/HD2025.png', github: 'https://github.com/HackDavis/hackdavis-hub' },
-    { id: 3, title: 'Mini Project 1', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
-    { id: 4, title: 'Mini Project 2', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
-    { id: 5, title: 'Mini Project 3', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
-    { id: 6, title: 'Mini Project 4', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
-    { id: 7, title: 'Mini Project 5', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
-    { id: 8, title: 'Mini Project 6', image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js'] },
+    { id: 1, title: 'HackDavis 2025 Judging App', pinned: true, image: '/Images/JudgingApp.png', github: 'https://github.com/HackDavis/website-2025'},
+    { id: 2, title: 'HackDavis Live Website 2025', image: '/Images/HD2025.png', github: 'https://github.com/HackDavis/hackdavis-hub' },
+    { id: 3, title: 'HackDavis HackerHub 2025', image: '/Images/HackerHub.png', github: 'https://github.com/HackDavis/hackdavis-hub', tags: ['React', 'Next.js', 'TypeScript'] },
+    { id: 4, title: '#include Technical Cohort Website', image: '/Images/IncludeClient.png', github: 'https://cohort.includedavis.com/', tags: ['React', 'Next.js'] },
+    { id: 5, title: 'Japanese American Student Society Website', image: '/Images/JASS.png', github: 'https://jassucd.vercel.app/', tags: ['React', 'Next.js'] },
+    { id: 6, title: "Fourth & Hope", image: '/Images/Fourth&Hope.png', github: 'https://github.com/include-davis/fourth-and-hope', tags: ['React', 'Next.js'] },
+    { id: 7, title: "Moo'd: Self-care Mobile App", image: '/Images/Mood.png', github: 'https://www.figma.com/design/PwRuol3009NMM2U6sWMUBp/Moo-d?node-id=374-77&t=VmtqILimRYfs2C3A-1', tags: ['React', 'Next.js'] },
+    { id: 8, title: 'SafeHER', image: '/Images/SafeHER.png', github: 'https://www.figma.com/design/fHArbkxShBoozuhpZNZVUK/safeHER?node-id=559-1397&t=XDA6UKb7pQBB2fXQ-1', tags: ['AI Rant Bot', 'OAuth'] },
   ]);
 
   const togglePin = (id: number) => {
