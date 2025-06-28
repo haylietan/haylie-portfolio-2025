@@ -1,10 +1,25 @@
+.container {
+  position: relative;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 15%;
+
+  .iconWrapper {
+    background-color: pink;
+    width: 100%;
+  }
+}
+
 .introWrapper {
   position: relative;
-  margin: 20%;
+  margin: 0%;
   border: 3px solid black;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 0.5rem;
 }
 
@@ -26,7 +41,7 @@
 .midTextLeft,
 .midTextRight {
   font-size: 2rem;
-  color: #888;
+  color: black;
   font-weight: 500;
   margin: 0;
   width: 100%; // matches name width
@@ -34,16 +49,34 @@
 
 .midTextLeft {
   text-align: left;
-
-  .role {
-    color: white;
-  }
 }
 
 .midTextRight {
   text-align: right;
+}
 
-  .role {
+.role {
+    font-size: 2.4rem;
+    text-align: right;
+    font-weight: 600;
     color: white;
-  }
+    line-height: 1.1;
+}
+
+.textRectangle {
+    margin-top: 5%;
+    background-color: white;
+    opacity: 0.9;
+    padding: 3%;
+    border-radius: 5px;
+    color: white;
+    width: 90%;
+
+    p {
+        color: black;
+        opacity: 1;
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 }
