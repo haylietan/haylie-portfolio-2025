@@ -1,0 +1,87 @@
+/* src/app/(pages)/about.module.scss */
+
+.container {
+  padding: 10% 5%;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.bentoGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-auto-flow: dense;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+//   justify-content: space-between;
+
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  ul {
+    text-align: left;
+    line-height: 2em;
+  }
+}
+
+.imageOnlyCard {
+  position: relative;
+  overflow: hidden;
+  padding: 0; // remove padding so the image fills completely
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  min-height: 250px; // or set a fixed height as needed
+}
+
+.cardImage {
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+
+/* Special layout classes */
+// .cardTall {
+//   grid-row: span 2;
+// }
+
+.cardWide {
+  grid-column: span 2;
+}
+
+/* Media responsiveness */
+@media (max-width: 768px) {
+  .cardTall,
+  .cardWide {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
