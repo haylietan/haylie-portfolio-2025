@@ -16,32 +16,48 @@
   gap: 1rem;
 }
 
+/* Featured Project Card */
 .featuredCard {
   flex: 1;
-  height: 12rem;
+  min-height: 14rem;
   border-radius: 0.75rem;
   background: white;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem;
-  transition: box-shadow 0.3s ease;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.pinned {
-  background: linear-gradient(to bottom, #444, #222);
-  color: white;
+.featuredImageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
+.featuredImage {
+  object-fit: cover;
+}
+
+/* Footer inside featured */
 .cardFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .label {
-  background: #eee;
+  background: black;
+  color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.875rem;
@@ -51,10 +67,11 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: inherit;
+  color: white;
   font-size: 1rem;
 }
 
+/* Scrollable mini project grid */
 .gridScroll {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
@@ -65,6 +82,7 @@
   gap: 1rem;
 }
 
+/* Mini project card */
 .gridItem {
   background: white;
   border-radius: 0.75rem;
@@ -72,14 +90,30 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
 
+/* Mini project preview image */
 .projectPreview {
-  background: #ddd;
+  width: 100%;
   height: 100px;
+  background-color: #ddd;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 0.5rem;
 }
 
+/* Project text + metadata */
 .projectMeta {
   display: flex;
   flex-direction: column;
@@ -103,4 +137,10 @@
   height: 1rem;
   background: #ccc;
   border-radius: 9999px;
+}
+
+/* Hover animation */
+.featuredCard:hover,
+.gridItem:hover {
+  transform: scale(1.02);
 }
