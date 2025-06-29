@@ -1,22 +1,47 @@
 .container {
   position: relative;
-  border: 3px solid black;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   height: 100%;
-  padding: 15%;
+  padding: 15% 13%;
 
   .iconWrapper {
-    background-color: pink;
-    width: 100%;
+    padding-top: 6%;
+    width: 70%;
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .star1 {
+        position: absolute;
+        left: 8%;
+        z-index: -1;
+        animation: spin 10s linear infinite; // 10s for 1 rotation, change as needed
+        transform-origin: center; // ensures it spins around its center
+    }
+
+    .star2 {
+        position: absolute;
+        left: 27%;
+        top: 55%;
+        rotate: 35deg;
+        animation: spin 10s linear infinite; // 10s for 1 rotation, change as needed
+        transform-origin: center; // ensures it spins around its center
+    }
   }
 }
 
 .introWrapper {
   position: relative;
   margin: 0%;
-  border: 3px solid black;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -55,22 +80,50 @@
   text-align: right;
 }
 
-.role {
-    font-size: 2.4rem;
-    text-align: right;
-    font-weight: 600;
-    color: white;
-    line-height: 1.1;
+// .role {
+//     font-size: 2.4rem;
+//     text-align: right;
+//     font-weight: 600;
+//     color: white;
+//     line-height: 1.1;
+// }
+
+.scrollContainer {
+  height: 2.5rem; // match word height
+  overflow: hidden;
+  position: relative;
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 0.25rem;
+  text-align: right;
 }
 
+.scrollInner {
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  transition: transform 0.6s ease-in-out;
+}
+
+.word {
+  height: 2.5rem; // same as container
+  display: flex;
+  align-items: center;      // vertically centers text
+  justify-content: flex-end; // aligns text to the right
+  width: 100%;
+}
+
+
+
 .textRectangle {
-    margin-top: 5%;
+    margin-top: -5%;
+    margin-left: -5%;
     background-color: white;
     opacity: 0.9;
     padding: 3%;
     border-radius: 5px;
     color: white;
-    width: 90%;
 
     p {
         color: black;
@@ -79,4 +132,34 @@
         font-size: 1rem;
         line-height: 1.5;
     }
+}
+
+// icons 
+
+.iconGroup {
+    padding-top: 3%;
+  display: flex;
+  gap: 5%;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+// skills
+
+.skillsBox {
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: left;
+    padding: 3%;
+    margin-top: 3%;
+    border-radius: 5;
 }
