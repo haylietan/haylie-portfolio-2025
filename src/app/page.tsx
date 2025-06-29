@@ -26,8 +26,8 @@ export default function Page() {
       <div className={styles.blurOverlay} />
 
       {/* center the app */}
-      <div className="w-screen min-h-screen pt-[4.5rem] md:pt-0 flex items-center justify-center overflow-auto">
-        <div className="relative z-10 w-screen max-w-[1440px] h-auto md:h-[90%] flex flex-col md:flex-row items-stretch justify-center p-4 md:p-6 text-center bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg overflow-hidden">
+      <div className="w-screen h-screen flex items-center justify-center overflow-auto">
+        <div className="relative z-10 w-[95%] max-w-[1440px] h-auto md:h-[90%] flex flex-col md:flex-row items-stretch justify-center p-4 md:p-6 text-center bg-white/30 backdrop-blur-md border border-white/40 rounded-xl shadow-lg overflow-hidden">
 
           {/* Responsive Navbar */}
           <Navbar
