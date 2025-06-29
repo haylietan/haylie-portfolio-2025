@@ -25,7 +25,7 @@ export default function About() {
 
         <div className={`${styles.card} ${styles.imageOnlyCard}`}>
           <Image
-            src="/Images/HaylieTan.png"
+            src="/Images/Beach.png"
             alt="Collaboration visual"
             fill
             className={styles.cardImage}

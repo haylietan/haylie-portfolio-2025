@@ -8,7 +8,7 @@ const rotatingWords = [
   'student',
   'matcha lover',
   'challenge seeker',
-  'sushi enjoyer',
+  'jellycat collector',
 ];
 
 export default function Hero() {
@@ -99,7 +99,7 @@ export default function Hero() {
 
         <div className={styles.skillsBox}>
             <ul>
-              <li><strong>Languages:</strong> TypeScript, JavaScript, Python, C, C++, Java, R, MATLAB</li>
+              <li><strong>Languages:</strong> TypeScript, JavaScript, HTML/CSS, Python, C, C++, Java, R, MATLAB</li>
               <li><strong>Frameworks:</strong> React, Next.js, Tailwind CSS, Node.js</li>
               <li><strong>Tools:</strong> Git, SiteFarm CMS, Figma, Adobe After Effects, Google Suite</li>
               <li><strong>Other:</strong> Accessibility, Debugging, Cross-functional Collaboration</li>
