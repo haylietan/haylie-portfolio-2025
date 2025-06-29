@@ -164,3 +164,57 @@
     margin-top: 3%;
     border-radius: 5;
 }
+
+// responsiveness
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10% 13%;
+  }
+
+  .iconWrapper {
+    display: none;
+
+    .avatarBadge {
+      display: none;
+    }
+  }
+
+  .introWrapper {
+    width: 100%;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .textBlock {
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .smallText,
+  .midTextLeft,
+  .midTextRight {
+    font-size: 1.3rem;
+  }
+
+  .scrollContainer,
+  .word {
+    font-size: 1.5rem;
+  }
+
+  .iconGroup {
+    justify-content: flex-end;
+  }
+
+  .skillsBox {
+    font-size: 1rem; // 👈 This sets the base font-size inside the skills box
+  }
+
+  .skillsBox li {
+    font-size: 0.85rem; // 👈 Add this to make individual list items smaller on mobile
+  }
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Navbar.module.scss';
 
 type NavBarProps = {
@@ -17,52 +17,82 @@ export default function Navbar({ slides, selectedIndex, scrollTo }: NavBarProps)
     setIsOpen(false); // Close menu after selecting on mobile
   };
 
-  return (
-    <aside className={styles.sidebar}>
-      <div className={styles.inner}>
-        {/* Top section */}
-        <div className={styles.topSection}>
-          <div className={styles.logo}/>
+  // Optional: lock background scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
 
-          <div className={styles.nameBlock}>
-            <div className={styles.name}>Haylie Tan</div>
-            <div className={styles.role}>Full-Stack Developer</div>
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <aside className={styles.sidebar}>
+        <div className={styles.inner}>
+          <div className={styles.topSection}>
+            <div className={styles.logo} />
+
+            <div className={styles.nameBlock}>
+              <div className={styles.name}>Haylie Tan</div>
+              <div className={styles.role}>Full-Stack Developer</div>
+            </div>
+
+            <a href="/Haylie_Tan_Resume.pdf" download className={styles.resumeBtn}>
+              <span>Download Resume →</span>
+            </a>
           </div>
 
-          {/* Hamburger Button (visible on small screens) */}
-          <button className={styles.hamburger} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle navigation">
-            <div className={styles.bar}></div>
-            <div className={styles.bar}></div>
-            <div className={styles.bar}></div>
+          <div className={styles.navSection}>
+            {slides.map((slide, index) => (
+              <button
+                key={index}
+                onClick={() => handleScroll(index)}
+                className={`${styles.navBtn} ${index === selectedIndex ? styles.active : ''}`}
+              >
+                {slide.title}
+              </button>
+            ))}
+          </div>
+
+          <div className={styles.footer}>
+            <p>Made with 🤍 and matcha 👩🏻‍💻.</p>
+            <p>© {new Date().getFullYear()}</p>
+          </div>
+        </div>
+      </aside>
+
+      {/* Mobile Navbar */}
+      <nav className={styles.mobileNav}>
+        <div className={styles.topBar}>
+          <div className={styles.logoText}>Haylie Tan</div>
+
+          <button
+            className={styles.hamburger}
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            <div className={styles.bar} />
+            <div className={styles.bar} />
+            <div className={styles.bar} />
           </button>
-
-          {/* Resume Button (hidden on mobile via CSS) */}
-          <a href="/Haylie_Tan_Resume.pdf" download className={styles.resumeBtn}>
-            <span>Download Resume →</span>
-          </a>
         </div>
 
-        {/* Nav buttons (show/hide on mobile via isOpen) */}
-        <div className={`${styles.navSection} ${isOpen ? styles.open : ''}`}>
-          {slides.map((slide, index) => (
-            <button
-              key={index}
-              onClick={() => handleScroll(index)}
-              className={`${styles.navBtn} ${
-                index === selectedIndex ? styles.active : ''
-              }`}
-            >
-              {slide.title}
-            </button>
-          ))}
-        </div>
+        {isOpen && (
+          <div className={styles.dropdown}>
+            {slides.map((slide, index) => (
+              <button
+                key={index}
+                className={`${styles.dropdownItem} ${selectedIndex === index ? styles.active : ''}`}
+                onClick={() => handleScroll(index)}
+              >
+                {slide.title}
+              </button>
+            ))}
 
-        {/* Footer (optional hide on mobile) */}
-        <div className={styles.footer}>
-          <p>Made with 🤍 and matcha 👩🏻‍💻.</p>
-          <p>© {new Date().getFullYear()}</p>
-        </div>
-      </div>
-    </aside>
+            <a href="/Haylie_Tan_Resume.pdf" download className={styles.resumeLink}>
+              Download Resume →
+            </a>
+          </div>
+        )}
+      </nav>
+    </>
   );
 }

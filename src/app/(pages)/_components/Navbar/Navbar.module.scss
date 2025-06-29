@@ -1,6 +1,8 @@
+/* Navbar.module.scss */
+
 .sidebar {
   width: 20%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(24px);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
@@ -8,6 +10,10 @@
   flex-direction: column;
   align-items: center;
   padding: 2.5rem 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .inner {
@@ -32,7 +38,6 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  // background-color: rgba(255, 255, 255, 0.2);
   border-radius: 0.75rem;
 }
 
@@ -68,13 +73,13 @@
   text-decoration: none;
   transition: background-color 0.2s ease;
 
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-
   span {
     font-size: 0.875rem;
     font-weight: 500;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -114,81 +119,96 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
-.footer p {
-  font-size: 0.85rem;
-  color: white;
-  text-align: center;
-  padding-bottom: 0.5rem;
+.footer {
+  p {
+    font-size: 0.85rem;
+    color: white;
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
 }
 
-// responsiveness
-.hamburger {
+/* Mobile styles */
+.mobileNav {
   display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: auto;
 }
 
-.bar {
-  width: 24px;
-  height: 2px;
-  background-color: white;
-  border-radius: 1px;
-}
-
-/* Responsive behavior */
 @media screen and (max-width: 768px) {
-  .resumeBtn,
-  .footer {
+  .sidebar {
     display: none;
+  }
+
+  .mobileNav {
+    display: block;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
   }
 
   .hamburger {
     display: flex;
-  }
-
-  .navSection {
-    display: none;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    align-items: center;
-    animation: fadeIn 0.3s ease-in-out;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .bar {
+      width: 24px;
+      height: 2px;
+      background-color: white;
+      border-radius: 1px;
+    }
   }
 
-  .open {
+  .dropdown {
     display: flex;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .sidebar {
-    width: 100%;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: none;
-  }
-
-  .topSection {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .inner {
     flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  .dropdownItem {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #cccccc;
+    }
+  }
+
+  .resumeLink {
+    font-size: 0.9rem;
+    color: white;
+    text-decoration: underline;
+    margin-top: 1rem;
+  }
+
+  .active {
+    color: #8feeff;
   }
 }
