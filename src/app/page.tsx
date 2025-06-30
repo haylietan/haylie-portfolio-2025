@@ -6,9 +6,11 @@ import styles from './Page.module.scss';
 import type { EmblaCarouselType } from 'embla-carousel';
 import Navbar from './(pages)/_components/Navbar/Navbar';
 
+
 export default function Page() {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollTo = (index: number) => {
     if (embla) embla.scrollTo(index);
@@ -46,6 +48,43 @@ export default function Page() {
 
         </div>
       </div>
+
+      {/* Mobile Navbar */}
+<nav className={styles.mobileNav}>
+  <div className={styles.topBar}>
+    <div className={styles.logoText}>Haylie Tan</div>
+    <button
+      className={styles.hamburger}
+      onClick={() => setIsMenuOpen((prev) => !prev)}
+      aria-label="Toggle navigation"
+    >
+      <div className={styles.bar}></div>
+      <div className={styles.bar}></div>
+      <div className={styles.bar}></div>
+    </button>
+  </div>
+
+    {isMenuOpen && (
+      <div className={styles.dropdown}>
+        {SLIDES.map((slide, index) => (
+          <button
+            key={index}
+            className={styles.dropdownItem}
+            onClick={() => {
+              scrollTo(index);
+              setIsMenuOpen(false);
+            }}
+          >
+            {slide.title}
+          </button>
+        ))}
+        <a href="/Haylie_Tan_Resume.pdf" className={styles.resumeLink} download>
+          Download Resume →
+        </a>
+      </div>
+    )}
+  </nav>
+
     </div>
   );
 }
